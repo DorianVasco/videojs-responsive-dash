@@ -1,0 +1,121 @@
+<html>
+
+<head data-cast-api-enabled="true">
+    <!-- allow chromecast extention -->
+
+    <link href="node_modules/video.js/dist/video-js.min.css" rel="stylesheet">
+
+
+
+
+    <style>
+        #instructions {
+            max-width: 640px;
+            text-align: left;
+            margin: 30px auto;
+        }
+
+        #instructions textarea {
+            width: 100%;
+            height: 100px;
+        }
+        /* Show the controls (hidden at the start by default) */
+
+        .video-js .vjs-control-bar {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+        /* Make the demo a little prettier */
+
+        body {
+            margin-top: 20px;
+            background: #222;
+            text-align: center;
+            color: #aaa;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: radial-gradient(#333, hsl(200, 30%, 6%));
+        }
+
+        a,
+        a:hover,
+        a:visited {
+            color: #76DAFF;
+        }
+</style>
+
+</head>
+
+<body>
+<div class="instructions">
+    <div class="embed-container">
+        <video class="video-js responsive vjs-default-skin vjs-big-play-button" poster="outputfile.jpg">
+         <source src="outputfile.mpd" type='application/dash+xml' />
+         <source src="previews/02.mp4" type='video/mp4' />
+      </video>
+    </div>
+
+    <div class="embed-container">
+        <video class="video-js responsive vjs-default-skin vjs-big-play-button" poster="outputfile.jpg">
+        <source src="previews/02.mp4" type='video/mp4' />
+         <source src="outputfile.mpd" type='application/dash+xml' />
+      </video>
+    </div>
+
+
+
+
+        cg1:<br>
+
+
+        <video class="video-js gif vjs-default-skin" width="600" height="600">
+          <source src="cg1.mp4" type='video/mp4' />
+        </video>
+
+        <br><br>
+
+        <video class="video-js gif-preview vjs-default-skin" width="300" height="300">
+    <source src="previews/01.mp4" type='video/mp4' />
+  </video>
+        <video class="video-js gif-preview vjs-default-skin" width="300" height="300">
+    <source src="previews/02.mp4" type='video/mp4' />
+  </video>
+        <video class="video-js gif-preview vjs-default-skin" width="300" height="300">
+    <source src="previews/03.mp4" type='video/mp4' />
+  </video>
+        <video class="video-js gif-preview vjs-default-skin" width="300" height="300">
+    <source src="previews/04.mp4" type='video/mp4' />
+  </video>
+</div>
+
+
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+
+<script src="node_modules/video.js/dist/video.min.js"></script>
+
+<!-- add mpeg-dash support -->
+<script src="node_modules/dashjs/dist/dash.all.min.js"></script>
+<script src="node_modules/videojs-contrib-dash/dist/videojs-dash.min.js"></script>
+
+<!-- play gif style -->
+<script src="node_modules/videojs-gifplayer/dist/videojs-gifplayer.min.js"></script>
+
+<!-- youtube support -->
+<script src="node_modules/videojs-youtube/dist/Youtube.min.js"></script>
+
+<!-- responsive layout -->
+<script src="node_modules/videojs-responsive-layout/dist/videojs-responsive-layout.min.js"></script>
+
+<!-- add chromecast support -->
+<!-- <script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script> -->
+<!-- add chromecast sdk -->
+<!-- <script src="node_modules/videojs-chromecast/dist/videojs-chromecast.js"></script> -->
+
+<script src="js/videoplayer.js"></script>
+
+
+</body>
+
+</html>

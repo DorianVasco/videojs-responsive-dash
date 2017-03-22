@@ -1,0 +1,25 @@
+{
+  "name": "cinemagraph-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "video.js": "^5.17.0"
+  },
+  "devDependencies": {
+    "dashjs": "^2.4.1",
+    "jquery": "^3.1.1",
+    "video.js": "^5.17.0",
+    "videojs-chromecast": "^2.0.8",
+    "videojs-contrib-dash": "^2.8.1",
+    "videojs-gifplayer": "0.0.3",
+    "videojs-responsive-layout": "^1.1.1",
+    "videojs-youtube": "^2.3.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
