@@ -37,13 +37,13 @@ http://codepen.io/heff/pen/EarCt/left/?editors=010
     /* The base font size controls the size of everything, not just text.
 All dimensions use em-based sizes so that the scale along with the font size.
 Try increasing it to 15px and see what happens. */
-    font-size: .7em;
+    font-size: 8pt;
     /* The main font color changes the ICON COLORS as well as the text */
     color: #fff;
 }
 
 .video-js.touch {
-    font-size: 2em;
+    font-size: 9pt;
 }
 /* The "Big Play Button" is the play button that shows before the video plays.
 To center it set the align values to center and middle. The typical location
@@ -60,7 +60,7 @@ Now that font size is set, the following em values will be a multiple of the
 new font size. If the font-size is 3em (30px), then setting any of
 the following values to 3em would equal 30px. 3 * font-size. */
     /* 1.5em = 45px default */
-    line-height: 1.6em;
+    line-height: 1.4em;
     height: 1.6em;
     width: 3em;
     /* 0.06666em = 2px default */
