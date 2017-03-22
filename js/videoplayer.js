@@ -11,6 +11,7 @@ window.onload = function() {
     //init standard videos with player controls
     $('.video-js.responsive').each( function() {
       console.log('video-js added.')
+      $(this).addClass('vjs-fluid');
       videojs(this, {
           loop: true,
           muted: true,
@@ -37,24 +38,32 @@ window.onload = function() {
 
     //init all videos which should act like GIFs (without controls, looping)
     $('.video-js.gif').each( function() {
+      $(this).on('contextmenu', function(e) { return false });
+      $(this).addClass('vjs-fluid');
       videojs(this).gifplayer();
     });
 
     //init gif preview videos
     $('.video-js.gif-preview').each( function() {
-      $(this).hover(hoverVideo, hideVideo);
+      //$(this).hover(hoverVideo, hideVideo).addClass('vjs-fluid');
+      $(this).on('contextmenu', function(e) { return false });
+      $(this).mouseenter(hoverVideo);
+      $(this).mouseleave(hideVideo);
+      $(this).addClass('vjs-fluid');
       videojs(this, {
           loop: true,
           muted: true,
           preload: "none",
           autoplay: false,
-          controls: false
+          controls: false,
+          fluid: true
       })
     });
 
 
-
 };
+
+
 
 
 

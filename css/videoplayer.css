@@ -116,7 +116,7 @@ smaller disconnected loaded time ranges */
 
 .video-js.responsive {
     width: 100% !important;
-    height: auto !important;
+    /*height: auto !important;*/
 }
 
 .video-js.responsive:after {
@@ -124,11 +124,15 @@ smaller disconnected loaded time ranges */
     display: block;
     position: relative;
     padding: 0;
-    padding-top: 56%;
+    /*padding-top: 56%;*/
     /* set this to (height/width)*100% (eg. 56%=16:9, 75%=4:3) */
-    margin: 0 0 0 -100%;
+    /*margin: 0 0 0 -100%;*/
     visibility: hidden;
-    height: 0;
+    /*height: 0;*/
+}
+
+.video-js.responsive:16-9 {
+
 }
 
 .vjs-poster {
@@ -146,6 +150,6 @@ smaller disconnected loaded time ranges */
     top: 50%;
 }
 
-.gif.preview {
+.gif-preview {
     float: left;
 }

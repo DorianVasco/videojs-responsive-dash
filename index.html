@@ -5,18 +5,20 @@
 
     <link href="node_modules/video.js/dist/video-js.min.css" rel="stylesheet">
 
+    <link href="css/videoplayer.min.css" rel="stylesheet">
+
 
 
 
     <style>
-        #instructions {
+        .instructions {
             max-width: 640px;
             text-align: left;
             margin: 30px auto;
         }
 
-        #instructions textarea {
-            width: 100%;
+        .instructions textarea {
+            width: 300px;
             height: 100px;
         }
         /* Show the controls (hidden at the start by default) */
@@ -48,7 +50,6 @@
 </head>
 
 <body>
-<div class="instructions">
     <div class="embed-container">
         <video class="video-js responsive vjs-default-skin vjs-big-play-button" poster="outputfile.jpg">
          <source src="outputfile.mpd" type='application/dash+xml' />
@@ -56,15 +57,18 @@
       </video>
     </div>
 
-    <div class="embed-container">
+    <!-- <div class="embed-container">
         <video class="video-js responsive vjs-default-skin vjs-big-play-button" poster="outputfile.jpg">
         <source src="previews/02.mp4" type='video/mp4' />
          <source src="outputfile.mpd" type='application/dash+xml' />
       </video>
     </div>
+ -->
 
 
 
+
+ <div class="instructions">
 
         cg1:<br>
 

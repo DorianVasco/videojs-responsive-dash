@@ -56,7 +56,7 @@ goto :finish
 
 set /p vScale="Set video preview width: "
 
-ffmpeg -y -i "%inputFile%" -c:v libx264 -g 25 -b:v 200k -maxrate 200k -bufsize 200k -vf "scale=-1:%vScale%" "%outputPath%\%inputFileName%-%vScale%.mp4"
+ffmpeg -y -i "%inputFile%" -c:v libx264 -g 25 -b:v 200k -maxrate 200k -bufsize 200k -vf "scale=-2:%vScale%" "%outputPath%\%inputFileName%-%vScale%.mp4"
 
 
 
