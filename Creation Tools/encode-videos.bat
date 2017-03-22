@@ -37,13 +37,13 @@ goto :choice
 
 :: if
 set vScale=1080
-::ffmpeg -y -i "%inputFile%" -c:v libx264 -g 25 -b:v 2000k -maxrate 2000k -bufsize 1000k -vf "scale=-1:%vScale%" "%tempPath%\%inputFileName%-%vScale%.mp4"
+ffmpeg -y -i "%inputFile%" -c:v libx264 -g 25 -b:v 2000k -maxrate 2000k -bufsize 1000k -vf "scale=-2:%vScale%" "%tempPath%\%inputFileName%-%vScale%.mp4"
 set vScale=720
-::ffmpeg -y -i "%inputFile%" -c:v libx264 -g 25 -b:v 1000k -maxrate 1000k -bufsize 1000k -vf "scale=-1:%vScale%" "%tempPath%\%inputFileName%-%vScale%.mp4"
+ffmpeg -y -i "%inputFile%" -c:v libx264 -g 25 -b:v 1000k -maxrate 1000k -bufsize 1000k -vf "scale=-2:%vScale%" "%tempPath%\%inputFileName%-%vScale%.mp4"
 set vScale=540
-::ffmpeg -y -i "%inputFile%" -c:v libx264 -g 25 -b:v 500k -maxrate 500k -bufsize 500k -vf "scale=-1:%vScale%" "%tempPath%\%inputFileName%-%vScale%.mp4"
+ffmpeg -y -i "%inputFile%" -c:v libx264 -g 25 -b:v 500k -maxrate 500k -bufsize 500k -vf "scale=-2:%vScale%" "%tempPath%\%inputFileName%-%vScale%.mp4"
 set vScale=320
-::ffmpeg -y -i "%inputFile%" -c:v libx264 -g 25 -b:v 200k -maxrate 200k -bufsize 200k -vf "scale=-1:%vScale%" "%tempPath%\%inputFileName%-%vScale%.mp4"
+ffmpeg -y -i "%inputFile%" -c:v libx264 -g 25 -b:v 200k -maxrate 200k -bufsize 200k -vf "scale=-2:%vScale%" "%tempPath%\%inputFileName%-%vScale%.mp4"
 ::@echo on
 MP4Box -dash 2000 -rap -frag-rap -profile onDemand -out "%outputPath%\%inputFileName%.mpd" "%tempPath%\%inputFileName%-320.mp4#audio" "%tempPath%\%inputFileName%-320.mp4#video" "%tempPath%\%inputFileName%-540.mp4#video" "%tempPath%\%inputFileName%-720.mp4#video" "%tempPath%\%inputFileName%-1080.mp4#video"
 
@@ -64,3 +64,7 @@ ffmpeg -y -i "%inputFile%" -c:v libx264 -g 25 -b:v 200k -maxrate 200k -bufsize 2
 
 :: remove temp directory with its contents
 rmdir "%tempPath%" /s /q
+
+echo FINISHED!
+
+pause
