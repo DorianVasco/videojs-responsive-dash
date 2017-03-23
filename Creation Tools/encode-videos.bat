@@ -36,14 +36,7 @@ goto :choice
 :enc2dash
 
 :: if
-set vScale=1080
-ffmpeg -y -i "%inputFile%" -c:v libx264 -g 25 -b:v 2000k -maxrate 2000k -bufsize 1000k -vf "scale=-2:%vScale%" "%tempPath%\%inputFileName%-%vScale%.mp4"
-set vScale=720
-ffmpeg -y -i "%inputFile%" -c:v libx264 -g 25 -b:v 1000k -maxrate 1000k -bufsize 1000k -vf "scale=-2:%vScale%" "%tempPath%\%inputFileName%-%vScale%.mp4"
-set vScale=540
-ffmpeg -y -i "%inputFile%" -c:v libx264 -g 25 -b:v 500k -maxrate 500k -bufsize 500k -vf "scale=-2:%vScale%" "%tempPath%\%inputFileName%-%vScale%.mp4"
-set vScale=320
-ffmpeg -y -i "%inputFile%" -c:v libx264 -g 25 -b:v 200k -maxrate 200k -bufsize 200k -vf "scale=-2:%vScale%" "%tempPath%\%inputFileName%-%vScale%.mp4"
+ffmpeg -y -i "%inputFile%" -c:v libx264 -g 25 -b:v 2500k -maxrate 3000k -bufsize 1000k -vf "scale=-2:1080" "%tempPath%\%inputFileName%-1080.mp4" -c:v libx264 -g 25 -b:v 1800k -maxrate 2100k -bufsize 1000k -vf "scale=-2:720" "%tempPath%\%inputFileName%-720.mp4" -c:v libx264 -g 25 -b:v 700k -maxrate 900k -bufsize 500k -vf "scale=-2:540" "%tempPath%\%inputFileName%-540.mp4" -c:v libx264 -g 25 -b:v 200k -maxrate 300k -bufsize 200k -vf "scale=-2:320" "%tempPath%\%inputFileName%-320.mp4"
 ::@echo on
 MP4Box -dash 2000 -rap -frag-rap -profile onDemand -out "%outputPath%\%inputFileName%.mpd" "%tempPath%\%inputFileName%-320.mp4#audio" "%tempPath%\%inputFileName%-320.mp4#video" "%tempPath%\%inputFileName%-540.mp4#video" "%tempPath%\%inputFileName%-720.mp4#video" "%tempPath%\%inputFileName%-1080.mp4#video"
 
