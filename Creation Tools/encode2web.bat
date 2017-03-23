@@ -13,8 +13,8 @@ FOR %%i IN ("%inputFile%") DO (
   set inputPath=%%~dpi
   set inputFileName=%%~ni
 )
-echo pfad = %inputPath%
-echo datei = %inputFileName%
+::echo pfad = %inputPath%
+::echo datei = %inputFileName%
 
 set tempPath=%inputPath%tmp-output
 set outputPath=%inputPath%Output
@@ -22,7 +22,7 @@ set outputPath=%inputPath%Output
 :: create output directory
 mkdir "%outputPath%"
 
-set /p vScale="Set video height (e.g. 1080 or 720 or whatever:"
+set /p vScale="Set video height (e.g. 1080 or 720 or whatever):"
 set /p vBitrate="Set bitrate (e.g. 2000): "
 
 :: set average bitrate
@@ -44,4 +44,3 @@ ffmpeg -y -i "%inputFile%" -vcodec libvpx -b:v %vBitrate%k -maxrate %vMax%k -buf
 
 echo FINISHED!
 
-pause

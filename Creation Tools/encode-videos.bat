@@ -36,7 +36,7 @@ goto :choice
 :enc2dash
 
 :: if
-ffmpeg -y -i "%inputFile%" -c:v libx264 -g 25 -b:v 2500k -maxrate 3000k -bufsize 1000k -vf "scale=-2:1080" "%tempPath%\%inputFileName%-1080.mp4" -c:v libx264 -g 25 -b:v 1800k -maxrate 2100k -bufsize 1000k -vf "scale=-2:720" "%tempPath%\%inputFileName%-720.mp4" -c:v libx264 -g 25 -b:v 700k -maxrate 900k -bufsize 500k -vf "scale=-2:540" "%tempPath%\%inputFileName%-540.mp4" -c:v libx264 -g 25 -b:v 200k -maxrate 300k -bufsize 200k -vf "scale=-2:320" "%tempPath%\%inputFileName%-320.mp4"
+ffmpeg -y -i "%inputFile%" -c:v libx264 -g 25 -b:v 2800k -maxrate 3200k -bufsize 2000k -vf "scale=-2:1080" "%tempPath%\%inputFileName%-1080.mp4" -c:v libx264 -g 25 -b:v 2000k -maxrate 2400k -bufsize 2000k -vf "scale=-2:720" "%tempPath%\%inputFileName%-720.mp4" -c:v libx264 -g 25 -b:v 900k -maxrate 1200k -bufsize 900k -vf "scale=-2:540" "%tempPath%\%inputFileName%-540.mp4" -c:v libx264 -g 25 -b:v 300k -maxrate 400k -bufsize 300k -vf "scale=-2:320" "%tempPath%\%inputFileName%-320.mp4"
 ::@echo on
 MP4Box -dash 2000 -rap -frag-rap -profile onDemand -out "%outputPath%\%inputFileName%.mpd" "%tempPath%\%inputFileName%-320.mp4#audio" "%tempPath%\%inputFileName%-320.mp4#video" "%tempPath%\%inputFileName%-540.mp4#video" "%tempPath%\%inputFileName%-720.mp4#video" "%tempPath%\%inputFileName%-1080.mp4#video"
 
@@ -60,4 +60,3 @@ rmdir "%tempPath%" /s /q
 
 echo FINISHED!
 
-pause

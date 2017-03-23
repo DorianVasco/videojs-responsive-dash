@@ -10,26 +10,27 @@ $('.video-js.responsive').each(function() {
     console.log('video-js added.')
     $(this).addClass('vjs-fluid');
     videojs(this, {
-        loop: true,
-        muted: true,
-        preload: "auto",
-        autoplay: false,
-        controls: true,
-        responsive: true,
-        //youtube support:
-        //techOrder: ["youtube","html5"]
-        chromecast: {
-            //appId:'APP-ID'
-        },
-        controlBar: {
-            volumeMenuButton: {
-                inline: true
-            }
-        },
-        plugins: {
-            responsiveLayout: {}
-        }
-    });
+          loop: false,
+          muted: false,
+          preload: "auto",
+          autoplay: false,
+          controls: true,
+          responsive: true,
+          //youtube support:
+          //techOrder: ["youtube","html5"]
+          chromecast: {
+              //appId:'APP-ID'
+          },
+          controlBar: {
+              volumeMenuButton: {
+                  inline: true
+              }
+          },
+          plugins: {
+              //responsiveLayout: {}
+          }
+      });
+
 
 });
 
