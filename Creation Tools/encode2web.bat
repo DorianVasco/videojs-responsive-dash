@@ -1,6 +1,6 @@
 @echo off
 echo ===============================
-echo == MEGA MP4:WEBM:OGV CREATOR ==
+echo == MEGA MP4:WEBM CREATOR ==
 echo ===============================
 
 :: get input file per drag and drop
@@ -43,4 +43,3 @@ ffmpeg -y -i "%inputFile%" -vcodec libvpx -b:v %vBitrate%k -maxrate %vMax%k -buf
 
 
 echo FINISHED!
-
