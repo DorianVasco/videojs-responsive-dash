@@ -8,7 +8,7 @@ cd "${0%/*}"
 # get input file per drag and drop
 read -p "Drag input file here: " inputFile
 
-echo „Datei::$inputFile::“
+#echo „Datei::$inputFile::“
 
 # remove "" or ''
 inputFile=${inputFile%\"}

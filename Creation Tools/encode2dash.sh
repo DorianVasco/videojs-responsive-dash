@@ -3,10 +3,13 @@ echo "============================="
 echo "== MEGA MPEG4 DASH CREATOR =="
 echo "============================="
 
+cd "${0%/*}"
+
+
 # get input file per drag and drop
 read -p "Drag input file here: " inputFile
 
-echo "Datei::$inputFile::"
+#echo "Datei::$inputFile::"
 
 # remove "" or ''
 inputFile=${inputFile%\"}
@@ -43,7 +46,7 @@ echo "======================"
 #vScale=${vScale:-1080}
 if [[ "$OSTYPE" == "msys" ]]; then
   cmdFfmpeg="./bin/win/ffmpeg.exe"
-  cmdFfmpeg="./bin/win/mp4box.exe"
+  cmdMp4box="./bin/win/mp4box.exe"
 else
   cmdFfmpeg="./bin/mac/ffmpeg"
   cmdMp4box="./bin/mac/MP4Box"
@@ -58,6 +61,6 @@ $cmdMp4box -dash 2000 -rap -frag-rap -profile onDemand -out "$outputPath/$inputN
 
 
 #remove temp directory with its contents
-#rmdir "%tempPath%" /s /q
+rm -R "$tempPath"
 
-echo FINISHED!
+echo "FINISHED!"
