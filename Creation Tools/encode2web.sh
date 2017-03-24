@@ -3,16 +3,22 @@ echo "==============================="
 echo "==== MEGA MP4:WEBM CREATOR ===="
 echo "==============================="
 
+cd "${0%/*}"
+
 # get input file per drag and drop
 read -p "Drag input file here: " inputFile
 
-#echo "$inputFile"
+echo „Datei::$inputFile::“
 
 # remove "" or ''
 inputFile=${inputFile%\"}
 inputFile=${inputFile#\"}
 inputFile=${inputFile%\'}
 inputFile=${inputFile#\'}
+# remove leading whitespace
+inputFile=${inputFile##*( )}
+# remove trailing whitespace
+inputFile=${inputFile%%*( )}
 
 #echo "stripped: $inputFile"
 
@@ -57,9 +63,9 @@ echo "======================"
 #./ffmpeg.exe -y -i "$inputFile" -vcodec libvpx -b:v "${vBitrate}k" -maxrate "${vMax}k" -bufsize "${vMax}k" -vf "scale=-2:$vScale" -acodec libvorbis -ac 2 -b:a 96k -ar 44100 -map 0 "$outputPath/$inputFileName.webm" #-vcodec libx264 -b:v %vBitrate%k -maxrate %vMax%k -bufsize %vMax%k -vf "scale=-2:%vScale%" "%outputPath%\%inputFileName%.mp4"
 
 if [[ "$OSTYPE" == "msys" ]]; then
-  cmd="./ffmpeg.exe"
+  cmd="./bin/win/ffmpeg.exe"
 else
-  cmd="./ffmpeg"
+  cmd="./bin/mac/ffmpeg"
 fi
 
 $cmd -y -i "$inputFile" -vcodec libvpx -b:v "${vBitrate}k" -maxrate "${vMax}k" -bufsize "${vMax}k" -vf "scale=-2:$vScale" -acodec libvorbis -ac 2 -b:a 96k -ar 44100 -map 0 "$outputPath/$inputName.webm" \
