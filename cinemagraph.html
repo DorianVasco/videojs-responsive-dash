@@ -1,0 +1,154 @@
+<html>
+
+<head>
+
+    <link href="node_modules/video.js/dist/video-js.min.css" rel="stylesheet">
+
+    <link href="css/videoplayer.min.css" rel="stylesheet">
+
+
+    <style>
+        .instructions {
+            max-width: 640px;
+            text-align: left;
+            margin: 30px auto;
+        }
+
+        .instructions textarea {
+            width: 300px;
+            height: 100px;
+        }
+        /* Show the controls (hidden at the start by default) */
+
+        .video-js .vjs-control-bar {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+        /* Make the demo a little prettier */
+
+        body {
+            margin-top: 20px;
+            background: #222;
+            text-align: center;
+            color: #aaa;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: radial-gradient(#333, hsl(200, 30%, 6%));
+        }
+
+        a,
+        a:hover,
+        a:visited {
+            color: #76DAFF;
+        }
+
+        .cg-preview {
+          width: 300px;
+          height: 300px;
+          float:left;
+        }
+    </style>
+
+</head>
+
+<body>
+
+        <div class="cg-preview">
+          <video class="video-js gif-preview vjs-default-skin">
+            <source src="videos/cinemagraph/cg1.mp4" type='video/mp4' />
+            <source src="videos/cinemagraph/cg1.webm" type='video/mp4' />
+          </video>
+        </div>
+        <div class="cg-preview">
+          <video class="video-js gif-preview vjs-default-skin">
+            <source src="videos/cinemagraph/cg2.mp4" type='video/mp4' />
+            <source src="videos/cinemagraph/cg2.webm" type='video/mp4' />
+          </video>
+        </div>
+        <div class="cg-preview">
+          <video class="video-js gif-preview vjs-default-skin">
+            <source src="videos/cinemagraph/cg3.mp4" type='video/mp4' />
+            <source src="videos/cinemagraph/cg3.webm" type='video/mp4' />
+          </video>
+        </div>
+        <div class="cg-preview">
+          <video class="video-js gif-preview vjs-default-skin">
+            <source src="videos/cinemagraph/cg4.mp4" type='video/mp4' />
+            <source src="videos/cinemagraph/cg4.webm" type='video/mp4' />
+          </video>
+        </div>
+
+        <div class="cg-preview">
+          <video class="video-js gif-preview vjs-default-skin">
+            <source src="videos/cinemagraph/cg1.mp4" type='video/mp4' />
+            <source src="videos/cinemagraph/cg1.webm" type='video/mp4' />
+          </video>
+        </div>
+        <div class="cg-preview">
+          <video class="video-js gif-preview vjs-default-skin">
+            <source src="videos/cinemagraph/cg2.mp4" type='video/mp4' />
+            <source src="videos/cinemagraph/cg2.webm" type='video/mp4' />
+          </video>
+        </div>
+        <div class="cg-preview">
+          <video class="video-js gif-preview vjs-default-skin">
+            <source src="videos/cinemagraph/cg3.mp4" type='video/mp4' />
+            <source src="videos/cinemagraph/cg3.webm" type='video/mp4' />
+          </video>
+        </div>
+        <div class="cg-preview">
+          <video class="video-js gif-preview vjs-default-skin">
+            <source src="videos/cinemagraph/cg4.mp4" type='video/mp4' />
+            <source src="videos/cinemagraph/cg4.webm" type='video/mp4' />
+          </video>
+        </div>
+
+        <div class="cg-preview">
+          <video class="video-js gif-preview vjs-default-skin">
+            <source src="videos/cinemagraph/cg1.mp4" type='video/mp4' />
+            <source src="videos/cinemagraph/cg1.webm" type='video/mp4' />
+          </video>
+        </div>
+        <div class="cg-preview">
+          <video class="video-js gif-preview vjs-default-skin">
+            <source src="videos/cinemagraph/cg2.mp4" type='video/mp4' />
+            <source src="videos/cinemagraph/cg2.webm" type='video/mp4' />
+          </video>
+        </div>
+        <div class="cg-preview">
+          <video class="video-js gif-preview vjs-default-skin">
+            <source src="videos/cinemagraph/cg3.mp4" type='video/mp4' />
+            <source src="videos/cinemagraph/cg3.webm" type='video/mp4' />
+          </video>
+        </div>
+        <div class="cg-preview">
+          <video class="video-js gif-preview vjs-default-skin">
+            <source src="videos/cinemagraph/cg4.mp4" type='video/mp4' />
+            <source src="videos/cinemagraph/cg4.webm" type='video/mp4' />
+          </video>
+        </div>
+
+
+
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+
+    <script src="node_modules/video.js/dist/video.min.js"></script>
+
+    <!-- add mpeg-dash support -->
+    <script src="node_modules/dashjs/dist/dash.all.min.js"></script>
+    <script src="node_modules/videojs-contrib-dash/dist/videojs-dash.min.js"></script>
+
+    <!-- play gif style -->
+    <script src="node_modules/videojs-gifplayer/dist/videojs-gifplayer.min.js"></script>
+
+    <!-- responsive layout -->
+    <script src="node_modules/videojs-responsive-layout/dist/videojs-responsive-layout.min.js"></script>
+
+    <script src="js/videoplayer.js"></script>
+
+
+</body>
+
+</html>

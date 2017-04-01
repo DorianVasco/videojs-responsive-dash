@@ -45,7 +45,13 @@
         a:visited {
             color: #76DAFF;
         }
-</style>
+
+        .cg-preview {
+          width: 300px;
+          height: 300px;
+          float:left;
+        }
+    </style>
 
 </head>
 
@@ -68,56 +74,67 @@
 
 
 
- <div class="instructions">
+    <div class="instructions">
 
         cg1:<br>
 
 
         <video class="video-js gif vjs-default-skin" width="600" height="600">
-          <source src="cg1.mp4" type='video/mp4' />
+          <!-- <source src="cg1.mp4" type='video/mp4' /> -->
         </video>
-
         <br><br>
+        <div class="cg-preview">
+          <video class="video-js gif-preview vjs-default-skin">
+            <source src="videos/cinemagraph/cg1.mp4" type='video/mp4' />
+            <source src="videos/cinemagraph/cg1.webm" type='video/mp4' />
+          </video>
+        </div>
+        <div class="cg-preview">
+          <video class="video-js gif-preview vjs-default-skin">
+            <source src="videos/cinemagraph/cg2.mp4" type='video/mp4' />
+            <source src="videos/cinemagraph/cg2.webm" type='video/mp4' />
+          </video>
+        </div>
+        <div class="cg-preview">
+          <video class="video-js gif-preview vjs-default-skin">
+            <source src="videos/cinemagraph/cg3.mp4" type='video/mp4' />
+            <source src="videos/cinemagraph/cg3.webm" type='video/mp4' />
+          </video>
+        </div>
+        <div class="cg-preview">
+          <video class="video-js gif-preview vjs-default-skin">
+            <source src="videos/cinemagraph/cg4.mp4" type='video/mp4' />
+            <source src="videos/cinemagraph/cg4.webm" type='video/mp4' />
+          </video>
+        </div>
 
-        <video class="video-js gif-preview vjs-default-skin" width="300" height="300">
-    <source src="previews/01.mp4" type='video/mp4' />
-  </video>
-        <video class="video-js gif-preview vjs-default-skin" width="300" height="300">
-    <source src="previews/02.mp4" type='video/mp4' />
-  </video>
-        <video class="video-js gif-preview vjs-default-skin" width="300" height="300">
-    <source src="previews/03.mp4" type='video/mp4' />
-  </video>
-        <video class="video-js gif-preview vjs-default-skin" width="300" height="300">
-    <source src="previews/04.mp4" type='video/mp4' />
-  </video>
-</div>
+    </div>
 
 
 
-<script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
 
-<script src="node_modules/video.js/dist/video.min.js"></script>
+    <script src="node_modules/video.js/dist/video.min.js"></script>
 
-<!-- add mpeg-dash support -->
-<script src="node_modules/dashjs/dist/dash.all.min.js"></script>
-<script src="node_modules/videojs-contrib-dash/dist/videojs-dash.min.js"></script>
+    <!-- add mpeg-dash support -->
+    <script src="node_modules/dashjs/dist/dash.all.min.js"></script>
+    <script src="node_modules/videojs-contrib-dash/dist/videojs-dash.min.js"></script>
 
-<!-- play gif style -->
-<script src="node_modules/videojs-gifplayer/dist/videojs-gifplayer.min.js"></script>
+    <!-- play gif style -->
+    <script src="node_modules/videojs-gifplayer/dist/videojs-gifplayer.min.js"></script>
 
-<!-- youtube support -->
-<script src="node_modules/videojs-youtube/dist/Youtube.min.js"></script>
+    <!-- youtube support -->
+    <script src="node_modules/videojs-youtube/dist/Youtube.min.js"></script>
 
-<!-- responsive layout -->
-<script src="node_modules/videojs-responsive-layout/dist/videojs-responsive-layout.min.js"></script>
+    <!-- responsive layout -->
+    <script src="node_modules/videojs-responsive-layout/dist/videojs-responsive-layout.min.js"></script>
 
-<!-- add chromecast support -->
-<!-- <script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script> -->
-<!-- add chromecast sdk -->
-<!-- <script src="node_modules/videojs-chromecast/dist/videojs-chromecast.js"></script> -->
+    <!-- add chromecast support -->
+    <!-- <script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script> -->
+    <!-- add chromecast sdk -->
+    <!-- <script src="node_modules/videojs-chromecast/dist/videojs-chromecast.js"></script> -->
 
-<script src="js/videoplayer.js"></script>
+    <script src="js/videoplayer.js"></script>
 
 
 </body>

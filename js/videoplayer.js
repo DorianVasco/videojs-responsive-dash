@@ -65,17 +65,23 @@ $('.video-js.gif').each(function() {
 
 //init gif preview videos
 $('.video-js.gif-preview').each(function() {
+    var $this = $(this);
     //$(this).hover(hoverVideo, hideVideo).addClass('vjs-fluid');
-    $(this).on('contextmenu', function(e) {
-        return false
+    $this.addClass('vjs-wait');
+    $this.on('ready', function() {
+      $this.removeClass('vjs-wait');
     });
-    $(this).mouseenter(hoverVideo);
-    $(this).mouseleave(hideVideo);
-    $(this).addClass('vjs-fluid');
+    //$(this).on('contextmenu', function(e) {
+    //    return false
+    //});
+    $this.mouseenter(hoverVideo);
+    $this.mouseleave(hideVideo);
+
+    // $(this).addClass('vjs-fluid');
     videojs(this, {
         loop: true,
         muted: true,
-        preload: "none",
+        preload: "auto",
         autoplay: false,
         controls: false,
         fluid: true

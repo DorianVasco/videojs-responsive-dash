@@ -114,6 +114,14 @@ smaller disconnected loaded time ranges */
     background: rgba(115, 133, 159, 0.75);
 }
 
+.vjs-waiting {
+  /*visibility: hidden;*/
+  background: red;
+}
+.vjs-loading-spinner {
+  display: none !important;
+}
+
 .video-js.responsive {
     width: 100% !important;
     /*height: auto !important;*/
@@ -150,6 +158,7 @@ smaller disconnected loaded time ranges */
     top: 50%;
 }
 
-.gif-preview {
-    float: left;
+.gif-preview.vjs-wait {
+    /*float: left;*/
+    /*visibility: hidden;*/
 }

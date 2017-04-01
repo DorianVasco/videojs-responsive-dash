@@ -57,6 +57,10 @@ $cmdFfmpeg -y -i "$inputFile" -c:v libx264 -g 25 -b:v 2800k -maxrate 3200k -bufs
   -c:v libx264 -g 25 -b:v 900k -maxrate 1200k -bufsize 900k -vf "scale=-2:540" "$tempPath/$inputName-540.mp4" \
   -c:v libx264 -g 25 -b:v 300k -maxrate 400k -bufsize 300k -vf "scale=-2:320" "$tempPath/$inputName-320.mp4"
 
+
+$cmdFfmpeg -ss 2 -i "$inputFile" -vf "select=gt(scene\,0.2)" -frames:v 4 -vsync vfr -vf fps=fps=1/20 -vf "scale=-2:720" "$outputPath/$inputName-%02d.jpg"
+
+
 $cmdMp4box -dash 2000 -rap -frag-rap -profile onDemand -out "$outputPath/$inputName.mpd" "$tempPath/$inputName-320.mp4#audio" "$tempPath/$inputName-320.mp4#video" "$tempPath/$inputName-540.mp4#video" "$tempPath/$inputName-720.mp4#video" "$tempPath/$inputName-1080.mp4#video"
 
 
