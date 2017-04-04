@@ -3,7 +3,7 @@ echo "============================="
 echo "== MEGA MPEG4 DASH CREATOR =="
 echo "============================="
 
-cd "${0%/*}"
+cd "$(dirname "$0")"
 
 
 # get input file per drag and drop
@@ -55,14 +55,14 @@ fi
 $cmdFfmpeg -y -i "$inputFile" -c:v libx264 -g 25 -b:v 2800k -maxrate 3200k -bufsize 2000k -vf "scale=-2:1080" "$tempPath/$inputName-1080.mp4" \
   -c:v libx264 -g 25 -b:v 2000k -maxrate 2400k -bufsize 2000k -vf "scale=-2:720" "$tempPath/$inputName-720.mp4" \
   -c:v libx264 -g 25 -b:v 900k -maxrate 1200k -bufsize 900k -vf "scale=-2:540" "$tempPath/$inputName-540.mp4" \
-  -c:v libx264 -g 25 -b:v 300k -maxrate 400k -bufsize 300k -vf "scale=-2:320" "$tempPath/$inputName-320.mp4"
+  -c:v libx264 -g 25 -b:v 300k -maxrate 400k -bufsize 300k -vf "scale=-2:320" "$tempPath/$inputName-320.mp4" \
+  -c:v libx264 -g 25 -b:v 1500k -maxrate 2000k -bufsize 1024k -vf "scale=-2:540" "$outputPath/$inputName.mp4" \
+  -c:v libvpx -b:v 1500k -maxrate 2000k -bufsize 1024k -vf "scale=-2:540" -acodec libvorbis -ac 2 -b:a 96k -ar 44100 -map 0 "$outputPath/${inputName}.webm"
 
 
 $cmdFfmpeg -ss 2 -i "$inputFile" -vf "select=gt(scene\,0.2)" -frames:v 4 -vsync vfr -vf fps=fps=1/20 -vf "scale=-2:720" "$outputPath/$inputName-%02d.jpg"
 
-
 $cmdMp4box -dash 2000 -rap -frag-rap -profile onDemand -out "$outputPath/$inputName.mpd" "$tempPath/$inputName-320.mp4#audio" "$tempPath/$inputName-320.mp4#video" "$tempPath/$inputName-540.mp4#video" "$tempPath/$inputName-720.mp4#video" "$tempPath/$inputName-1080.mp4#video"
-
 
 #remove temp directory with its contents
 rm -R "$tempPath"
