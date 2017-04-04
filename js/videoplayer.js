@@ -74,15 +74,15 @@ $('.video-js.gif-preview').each(function() {
     //$(this).on('contextmenu', function(e) {
     //    return false
     //});
-    $this.mouseenter(hoverVideo);
-    $this.mouseleave(hideVideo);
+    //$this.mouseenter(hoverVideo);
+    //$this.mouseleave(hideVideo);
 
     // $(this).addClass('vjs-fluid');
     videojs(this, {
         loop: true,
         muted: true,
         preload: "auto",
-        autoplay: false,
+        autoplay: true,
         controls: false,
         fluid: true
     })

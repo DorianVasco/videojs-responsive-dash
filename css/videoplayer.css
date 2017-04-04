@@ -1,10 +1,11 @@
 
 .embed-container {
     position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
+    padding:0;
+    height: 100%;
+    background: red;
     overflow: hidden;
-    max-width: 1400px;
+    /*max-width: 1400px;*/
     margin: auto;
 }
 
