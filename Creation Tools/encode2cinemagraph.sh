@@ -66,12 +66,12 @@ fi
 echo "Encoding video to large and small sizes"
 
 $cmdFfmpeg -y -i "$inputFile" -threads 0 -vcodec libvpx -b:v "${vBitrate}k" -maxrate "${vBitrate}k" -bufsize "${vBitrate}k" -vf "scale=-2:$vScale, crop=$vScale:$vScale" -acodec libvorbis -ac 2 -b:a 96k -ar 44100 -map 0 "$outputPath/${inputName}-thumb.webm" \
-  -vcodec libx264 -b:v "${vBitrate}k" -maxrate "${vBitrate}k" -bufsize "${vBitrate}k" -vf "scale=-2:$vScale, crop=$vScale:$vScale" "$outputPath/${inputName}-thumb.mp4" \
-  -c:v libx264 -g 30 -b:v 2800k -maxrate 3200k -bufsize 2000k -vf "scale=-2:1080" "$tempPath/$inputName-1080.mp4" \
-  -c:v libx264 -g 30 -b:v 2000k -maxrate 2400k -bufsize 2000k -vf "scale=-2:720" "$tempPath/$inputName-720.mp4" \
-  -c:v libx264 -g 30 -b:v 900k -maxrate 1200k -bufsize 900k -vf "scale=-2:540" "$tempPath/$inputName-540.mp4" \
-  -c:v libx264 -g 30 -b:v 300k -maxrate 400k -bufsize 300k -vf "scale=-2:320" "$tempPath/$inputName-320.mp4" \
-  -c:v libx264 -b:v 1500k -maxrate 2000k -bufsize 1024k -vf "scale=-2:540" "$outputPath/$inputName.mp4" \
+  -vcodec libx264 -preset veryslow -b:v "${vBitrate}k" -maxrate "${vBitrate}k" -bufsize "${vBitrate}k" -vf "scale=-2:$vScale, crop=$vScale:$vScale" "$outputPath/${inputName}-thumb.mp4" \
+  -c:v libx264 -preset veryslow -g 30 -b:v 2800k -maxrate 3200k -bufsize 2000k -vf "scale=-2:1080" "$tempPath/$inputName-1080.mp4" \
+  -c:v libx264 -preset veryslow -g 30 -b:v 2000k -maxrate 2400k -bufsize 2000k -vf "scale=-2:720" "$tempPath/$inputName-720.mp4" \
+  -c:v libx264 -preset veryslow -g 30 -b:v 900k -maxrate 1200k -bufsize 900k -vf "scale=-2:540" "$tempPath/$inputName-540.mp4" \
+  -c:v libx264 -preset veryslow -g 30 -b:v 300k -maxrate 400k -bufsize 300k -vf "scale=-2:320" "$tempPath/$inputName-320.mp4" \
+  -c:v libx264 -preset veryslow -b:v 1500k -maxrate 2000k -bufsize 1024k -vf "scale=-2:540" "$outputPath/$inputName.mp4" \
   -c:v libvpx -b:v 1500k -maxrate 2000k -bufsize 1024k -vf "scale=-2:540" -acodec libvorbis -ac 2 -b:a 96k -ar 44100 -map 0 "$outputPath/${inputName}.webm"
 
 echo "Creating still images.."
