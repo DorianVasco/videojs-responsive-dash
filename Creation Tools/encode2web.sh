@@ -61,10 +61,11 @@ else
 fi
 
 $cmdFfmpeg -y -i "$inputFile" -vcodec libvpx -preset veryslow -b:v "${vBitrate}k" -maxrate "${vMax}k" -bufsize "${vMax}k" -vf "scale=-2:$vScale" -acodec libvorbis -ac 2 -b:a 96k -ar 44100 -map 0 "$outputPath/$inputName.webm" \
+  -vcodec libvpx -preset veryslow -b:v ${vBitrate}k -maxrate ${vMax}k -bufsize ${vMax}k -vf "scale=-2:$vScale" "$outputPath/$inputName.ogv" \
   -vcodec libx264 -preset veryslow -b:v ${vBitrate}k -maxrate ${vMax}k -bufsize ${vMax}k -vf "scale=-2:$vScale" "$outputPath/$inputName.mp4"
 
 echo "Creating still images.."
-$cmdFfmpeg -ss 2 -i "$inputFile" -vf "select=gt(scene\,0.2)" -preset veryslow -frames:v 1 -vsync vfr -vf fps=fps=1/20 -vf "scale=-2:$vScale" "$outputPath/$inputName.jpg"
+$cmdFfmpeg -ss 8 -i "$inputFile" -vf "select=gt(scene\,0.2)" -preset veryslow -frames:v 5 -vsync vfr -vf fps=fps=1/20 -vf "scale=-2:$vScale" "$outputPath/$inputName.jpg"
 
 
 #:finish
