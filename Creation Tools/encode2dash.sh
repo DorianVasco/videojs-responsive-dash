@@ -31,7 +31,7 @@ inputPath="$(dirname "$inputFile")"
 #echo "$inputName"
 #echo "$inputPath"
 
-tempPath="$inputPath/tmp-output"
+tempPath="$inputPath/tmp-output-$(date +%s%3N)"
 outputPath="$inputPath/Output"
 
 # create output directory
