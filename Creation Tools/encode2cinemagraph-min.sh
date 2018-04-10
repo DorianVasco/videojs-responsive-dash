@@ -65,11 +65,14 @@ fi
 
 echo "Encoding video to large and small sizes"
 
-$cmdFfmpeg -y -i "$inputFile" -threads 0 -c:v libx264 -preset veryslow -b:v 1500k -maxrate 2000k -bufsize 1024k -vf "scale=-2:540" "$outputPath/$inputName.mp4" \
-  -c:v libvpx -b:v 1500k -maxrate 2000k -bufsize 1024k -vf "scale=-2:540" -acodec libvorbis -ac 2 -b:a 96k -ar 44100 -map 0 "$outputPath/${inputName}.webm"
+$cmdFfmpeg -y -i "$inputFile" -threads 8 -c:v libx264 -preset veryslow -b:v 1000k -minrate 800k -maxrate 2000k -bufsize 512k -vf "scale=-2:540" "$outputPath/$inputName.mp4" \
+  -c:v libvpx -b:v 1000k -minrate 800k -maxrate 2000k -bufsize 512k -vf "scale=-2:540" -acodec libvorbis -ac 2 -b:a 96k -ar 44100 -map 0 "$outputPath/${inputName}.webm"
 
 echo "Creating still images.."
-$cmdFfmpeg -y -ss 2 -i "$inputFile" -threads 0 -vf "select=gt(scene\,0.1)" -frames:v 1 -vsync vfr -vf "fps=fps=1/20" -vf "scale=-2:540", "$outputPath/${inputName}.jpg"
+$cmdFfmpeg -y -ss 2 -i "$inputFile" -threads 0 -vf "select=eq(n\,0)" -vsync vfr -vf "scale=-2:540", "$outputPath/${inputName}-01.jpg"
+
+ffmpeg -i inputfile.mkv -vf "select=eq(n\,0)" -vf scale=320:-2 -q:v 3 output_image.jpg
+
 
 rm -R "$tempPath"
 
