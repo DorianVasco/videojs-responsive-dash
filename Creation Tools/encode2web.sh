@@ -60,7 +60,9 @@ else
   cmdFfmpeg="./bin/mac/ffmpeg"
 fi
 
-$cmdFfmpeg -y -i "$inputFile" -vcodec libvpx -preset veryslow -b:v "${vBitrate}k" -maxrate "${vMax}k" -bufsize "${vMax}k" -vf "scale=-2:$vScale" -acodec libvorbis -ac 2 -b:a 96k -ar 44100 -map 0 "$outputPath/$inputName.webm" \
+# $cmdFfmpeg -y -i "$inputFile" -vcodec libx264 -preset veryslow -b:v ${vBitrate}k -maxrate ${vMax}k -bufsize ${vMax}k -vf "scale=-2:$vScale" "$outputPath/$inputName.mp4"
+
+$cmdFfmpeg -y -i "$inputFile"  -vcodec libvpx -preset veryslow -b:v "${vBitrate}k" -maxrate "${vMax}k" -bufsize "${vMax}k" -vf "scale=-2:$vScale" -acodec libvorbis -ac 2 -b:a 96k -ar 44100 -map 0 "$outputPath/$inputName.webm" \
   -vcodec libvpx -preset veryslow -b:v ${vBitrate}k -maxrate ${vMax}k -bufsize ${vMax}k -vf "scale=-2:$vScale" "$outputPath/$inputName.ogv" \
   -vcodec libx264 -preset veryslow -b:v ${vBitrate}k -maxrate ${vMax}k -bufsize ${vMax}k -vf "scale=-2:$vScale" "$outputPath/$inputName.mp4"
 
