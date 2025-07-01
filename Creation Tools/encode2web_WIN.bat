@@ -36,7 +36,7 @@ echo creating MP4..
 ::ffmpeg -y -i "%inputFile%" -c:v libx264 -b:v %vBitrate%k -maxrate %vMax%k -bufsize %vMax%k -vf "scale=-2:%vScale%" "%outputPath%\%inputFileName%.mp4"
 
 
-ffmpeg -y -i "%inputFile%" -vcodec libvpx -b:v %vBitrate%k -maxrate %vMax%k -bufsize %vMax%k -vf "scale=-2:%vScale%" -acodec libvorbis -ac 2 -b:a 96k -ar 44100 -map 0 "%outputPath%\%inputFileName%.webm" -vcodec libx264 -b:v %vBitrate%k -maxrate %vMax%k -bufsize %vMax%k -vf "scale=-2:%vScale%" "%outputPath%\%inputFileName%.mp4"
+ffmpeg -y -i "%inputFile%" -vcodec libvpx -b:v %vBitrate%k -maxrate %vMax%k -bufsize %vMax%k -vf "scale=-2:%vScale%" -acodec libvorbis -ac 2 -b:a 96k -ar 44100 "%outputPath%\%inputFileName%.webm"
 
 
 :finish

@@ -62,11 +62,16 @@ echo "======================"
 
 cmdFfmpeg="ffmpeg"
 
-ffmpeg -y -i "$inputFile" \ # -c:v libvpx-vp9 -b:v "${vBitrate}k" -maxrate "${vMax}k" -bufsize "${vMax}k" -vf "scale=-2:$vScale" -c:a libvorbis -b:a 96k -ar 44100 "$outputPath/$inputName.webm" \
-#-c:v libtheora -b:v "${vBitrate}k" -maxrate "${vMax}k" -bufsize "${vMax}k" -vf "scale=-2:$vScale" "$outputPath/$inputName.ogv" \
--c:v libx264 -preset slow -b:v "${vBitrate}k" -maxrate "${vMax}k" -bufsize "${vMax}k" -vf "scale=-2:$vScale" -c:a aac -b:a 128k "$outputPath/$inputName.mp4"
+#$cmfFfmpeg -y -i "$inputFile" -c:v libvpx-vp9 -b:v "${vBitrate}k" -maxrate "${vMax}k" -bufsize "${vMax}k" -vf "scale=-2:$vScale" -c:a libvorbis -b:a 96k -ar 44100 "$outputPath/$inputName.webm" \
+#-c:v libtheora -b:v "${vBitrate}k" -maxrate "${vMax}k" -bufsize "${vMax}k" -vf "scale=-2:$vScale" "$outputPath/$inputName.ogv" #\
+# -c:v libx264 -preset veryslow -b:v "${vBitrate}k" -maxrate "${vMax}k" -bufsize "${vMax}k" -vf "scale=-2:$vScale" -c:a aac -b:a 128k "$outputPath/$inputName.mp4"
+
+ffmpeg -y -i "$inputFile" -c:v libvpx-vp9 -b:v "${vBitrate}k" -maxrate "${vMax}k" -bufsize "${vMax}k" -vf "scale=-2:1080$vScale" -c:a libvorbis -b:a 96k -ar 44100 "$outputPath/$inputName_1080p.webm" \
+-c:v libtheora -b:v "${vBitrate}k" -maxrate "${vMax}k" -bufsize "${vMax}k" -vf "scale=-2:1080" "$outputPath/$inputName_1080p.ogv" #\
+#-c:v libvpx-vp9 -b:v "1700k" -maxrate "2000k" -bufsize "2000k" -vf "scale=-2:720" -c:a libvorbis -b:a 96k -ar 44100 "$outputPath/$inputName_720p.webm" \
+#-c:v libtheora -b:v "1700k" -maxrate "2000k" -bufsize "2000k" -vf "scale=-2:720" "$outputPath/$inputName_720p.ogv"
 
 echo "Creating still images.."
-$cmdFfmpeg -ss 6 -i "$inputFile" -vf "select=gt(scene\,0.2)" -preset veryslow -frames:v 1 -vsync vfr -vf fps=fps=1/20 -vf "scale=-2:$vScale" "$outputPath/$inputName.jpg"
+ffmpeg -ss 6 -i "$inputFile" -vf "select=gt(scene\,0.2)" -preset veryslow -frames:v 1 -vsync vfr -vf fps=fps=1/20 -vf "scale=-2:$vScale" "$outputPath/$inputName.jpg"
 
 echo "FINISHED!"
